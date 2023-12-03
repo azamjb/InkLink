@@ -25,7 +25,7 @@ function loadFileContent(filename) {
         .then(response => response.json())
         .then(data => {
             if (data && data.length > 0) {
-                // Assuming the server returns an array of objects and the file content is in the 'file_content' property
+                
                 document.getElementById('noteInput').value = data[0].file_content;
             } else {
                 // Handle case where no content is returned
@@ -53,15 +53,15 @@ function saveFileContent() {
     })
     .then(response => {
         if (response.ok) {
-            return response.json(); // Parse as JSON only if the response is OK
+            return response.json(); 
         } else {
-            // Handle non-JSON responses or server-side errors
+            
             return response.text().then(text => { throw new Error(text) });
         }
     })
     .then(response => {
         if (response.ok) {
-            return response.json(); // or response.text() if the response is plain text
+            return response.json(); 
         } else {
             throw new Error('Failed to save file');
         }
