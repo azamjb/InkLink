@@ -1,18 +1,19 @@
 
-#InkLink
+# InkLink
 
 Accessible note taking web application, tailored to support users with various disabilities, including visual, auditory, and learning challenges.
 Built for the Western Developers Society Overhaul'23 hackathon, placed 2nd overall!
 
 Interactive User Interface: Crafted a warm, inviting UI with a streamlined taskbar, consistent color scheme, and responsive design
 
-#Advanced Functionalities:
+# Advanced Functionalities:
 
-Speech-to-Text: Enabled vocal inputs to be converted into written notes                                                 
-Text-to-Speech: Gave users ability to highlight text and have it read aloud to them
-Real-Time Language Translation: Integrated live language translation features
+Speech-to-Text: Enabled vocal inputs to be converted into written notes                                                   
+Text-to-Speech: Gave users ability to highlight text and have it read aloud to them  
+Real-Time Language Translation: Integrated live language translation features  
+Functional login System: Users can create accounts, sign in, write and store files on their own account  
 
-#Tech Stack:
+# Tech Stack:
 
 Front-End: Built using HTML, CSS, and JavaScript, focusing on responsive design and accessibility.
 Back-End: Developed with Node.js and Express.js, managing server-side operations and API interactions.
