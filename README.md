@@ -8,7 +8,7 @@ Interactive User Interface: Crafted a warm, inviting UI with a streamlined taskb
 
 #Advanced Functionalities:
 
-Speech-to-Text: Enabled vocal inputs to be converted into written notes
+Speech-to-Text: Enabled vocal inputs to be converted into written notes                                                 
 Text-to-Speech: Gave users ability to highlight text and have it read aloud to them
 Real-Time Language Translation: Integrated live language translation features
 
