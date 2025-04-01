@@ -9,7 +9,7 @@ app.use(express.json()); // for parsing application/json
 app.use(express.static(path.join(__dirname, 'public'))); // allow for static file serving
 
 // MySQL connection
-const connection = mysql.createConnection({
+const connection = mysql.createConnection({ // should not be exposde
   host: '127.0.0.1',
   user: 'root',
   password: 'GuppyAzam123', 
@@ -20,6 +20,7 @@ connection.connect(err => {
   if (err) throw err;
   console.log('Connected to MySQL database!');
 });
+
 
 // Endpoint to insert a new user
 app.post('/adduser', async (req, res) => {
@@ -42,6 +43,7 @@ app.post('/adduser', async (req, res) => {
     res.status(500).send('Server error');
   }
 });
+
 
 // Endpoint to login a user and verify the password
 app.post('/login', async (req, res) => {
@@ -72,6 +74,7 @@ app.post('/login', async (req, res) => {
     });
   });
 
+
 // Endpoint to insert a new file
 app.post('/addfile', async (req, res) => {
   const { username, filename, file_content } = req.body;
@@ -90,6 +93,7 @@ app.post('/addfile', async (req, res) => {
     res.status(500).send('Server error');
   }
 });
+
 
 // Endpoint to retrieve file names, based on username
 app.get('/retrievefiles', (req, res) => {
@@ -110,6 +114,7 @@ app.get('/retrievefiles', (req, res) => {
   }
 });
 
+
 // Endpoint to retrieve file content, based on file name
 app.get('/retrievefilecontent', (req, res) => {
   const filename = req.query.filename; // Assuming username is passed as a query parameter
@@ -129,6 +134,7 @@ app.get('/retrievefilecontent', (req, res) => {
   }
 });
 
+
 // Endpoint to alter content of a file
 app.post('/alterfile', async (req, res) => {
   const { username, filename, file_content } = req.body;
@@ -147,6 +153,7 @@ app.post('/alterfile', async (req, res) => {
     res.status(500).send('Server error');
   }
 });
+
 
 // Endpoint to delete a file
 app.post('/deletefile', async (req, res) => {
@@ -168,7 +175,6 @@ app.post('/deletefile', async (req, res) => {
 });
 
 
-    
 
 const PORT = process.env.PORT || 3000;
 

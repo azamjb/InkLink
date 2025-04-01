@@ -1,5 +1,8 @@
-document.getElementById('signupForm').addEventListener('submit', function(e) {
-    e.preventDefault(); 
+
+
+document.getElementById('signupForm').addEventListener('submit', function(e) { // event listener for when user submits form
+
+    e.preventDefault(); // prevents page reload
 
     const username = this.username.value; // getting username value
     const password = this.password.value; // getting password value
@@ -25,3 +28,4 @@ document.getElementById('signupForm').addEventListener('submit', function(e) {
         console.error('Error:', error);
     });
 });
+

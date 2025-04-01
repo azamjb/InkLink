@@ -1,16 +1,19 @@
-document.addEventListener('DOMContentLoaded', function () {
 
-    let username = localStorage.getItem('username');
+document.addEventListener('DOMContentLoaded', function () { // on initial load...
+
+    let username = localStorage.getItem('username'); // if user is logged in
     if (username) {
-        fetch(`/retrievefiles?username=${username}`)
+        fetch(`/retrievefiles?username=${username}`) // retrieve list of files for user
+
             .then(response => response.json())
             .then(files => {
+
                 let fileList = document.querySelector('.file-list');
                 files.forEach(file => {
-                    let fileElement = document.createElement('div');
+                    let fileElement = document.createElement('div'); // creates file div
                     fileElement.textContent = file.filename;
-                    fileElement.addEventListener('click', () => loadFileContent(file.filename));
-                    fileList.appendChild(fileElement);
+                    fileElement.addEventListener('click', () => loadFileContent(file.filename)); // for each file, retrieve the content for that file
+                    fileList.appendChild(fileElement); // add to list of divs
                 });
             });
     }
@@ -20,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.add-file-btn').addEventListener('click', addNewFile);
 });
 
-function loadFileContent(filename) {
+
+function loadFileContent(filename) { // function to retrieve file content given a filename
     fetch(`/retrievefilecontent?filename=${filename}`)
         .then(response => response.json())
         .then(data => {
@@ -35,18 +39,18 @@ function loadFileContent(filename) {
         })
         .catch(error => {
             console.error('Error loading file content:', error);
-            // Handle the error appropriately
         });
 }
 
 
-function saveFileContent() {
+function saveFileContent() { // function for saving file content to a file
+
     let filename = document.getElementById('currentFileName').value;
     let fileContent = document.getElementById('noteInput').value;
     let username = localStorage.getItem('username');
     
 
-    fetch('/alterfile', {
+    fetch('/alterfile', { // altering file in db to add content
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, filename, file_content: fileContent })
@@ -74,9 +78,13 @@ function saveFileContent() {
     });
 }
 
-function addNewFile() {
-    let newFilename = prompt("Enter new file name:");
+
+function addNewFile() { // function for adding new file - for specific user
+
+    let newFilename = prompt("Enter new file name:"); // prompt for filename
+
     if (newFilename) {
+
         let username = localStorage.getItem('username');
         let fileContent = "";
 
@@ -86,7 +94,7 @@ function addNewFile() {
         fileElement.addEventListener('click', () => loadFileContent(newFilename));
         fileList.appendChild(fileElement);
 
-        fetch('/addfile', {
+        fetch('/addfile', { // making api call, initially file content is blank
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, filename: newFilename, file_content: fileContent })
@@ -94,11 +102,14 @@ function addNewFile() {
     }
 }
 
-function deleteFileContent() {
+
+function deleteFileContent() { // function to delete a file
+
     let filename = document.getElementById('currentFileName').value;
     let username = localStorage.getItem('username');
 
     if (filename && confirm("Are you sure you want to delete this file?")) {
+
         fetch('/deletefile', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -107,7 +118,7 @@ function deleteFileContent() {
         .then(response => {
             if(response.ok) {
                 alert("File deleted successfully.");
-                removeFileFromList(filename);
+                removeFileFromList(filename); // remove filename
                 document.getElementById('noteInput').value = ''; // Clear the textarea
                 document.getElementById('currentFileName').value = ''; // Clear the current filename
             } else {
@@ -120,7 +131,8 @@ function deleteFileContent() {
     }
 }
 
-function removeFileFromList(filename) {
+function removeFileFromList(filename) { // function to remove a filename from a displayed list of files
+
     let fileList = document.querySelector('.file-list');
     let files = fileList.querySelectorAll('div');
     files.forEach(file => {
