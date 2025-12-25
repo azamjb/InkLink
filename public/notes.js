@@ -63,16 +63,6 @@ function saveFileContent() { // function for saving file content to a file
             return response.text().then(text => { throw new Error(text) });
         }
     })
-    .then(response => {
-        if (response.ok) {
-            return response.json(); 
-        } else {
-            throw new Error('Failed to save file');
-        }
-    })
-    .then(data => {
-        console.log('File saved successfully:', data);
-    })
     .catch(error => {
         console.error('Error saving file:', error);
     });

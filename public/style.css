@@ -3,7 +3,7 @@ body {
     --btn-primary: #7D7DF7;
     --border: #C0BFBF;
     --link-color: #505F98;
-    --btn-primary-dark: #111b47;
+    --btn-primary-dark: #3498db;
     --btn-secondary: transparent;
     --text-color: #333;
     --background-color: #FFF;
@@ -40,7 +40,7 @@ body {
 .image-button {
     height: 7%;
     width: 3.5%;
-    background-color: #111b47;
+    background-color: #3498db;
     border: none;
     color: white;
     padding: 1vh;
@@ -56,7 +56,7 @@ body {
 .tts-button {
     height: 7%;
     width: 3.5%;
-    background-color: #111b47;
+    background-color: #3498db;
     border: none;
     color: white;
     padding: 1vh;
@@ -82,8 +82,8 @@ body {
 .font-resize-controls {
     font-family: 'sfpro';
     position: fixed;
-    margin-left: 95%;
-    bottom: 10%;
+    margin-left: 93%;
+    bottom: 12%;
     z-index: 1000;
     transform: translateY(50%);
 
@@ -113,7 +113,7 @@ body {
     margin-top: 8%;
     font-family: 'sfpro';
     font-size: 1rem;
-    background-color: #111b47;
+    background-color: #3498db;
     border-radius: 20px;
     color: white;
     border: none;
@@ -145,7 +145,7 @@ body {
     text-decoration: none;
     padding-right: 25px;
     padding-left: 20px;
-    color: #111b47;
+    color: #3498db;
     position: relative;
     bottom: -3px !important;
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -417,7 +417,7 @@ body {
 
 
 .pricing-card {
-    border: 1px solid #111b47;
+    border: 1px solid #3498db;
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -452,6 +452,11 @@ body {
     background: #555;
 }
 
+.file-selected {
+    background-color: #d6ecfa;
+    padding-left: 20px;
+    border-radius: 4px;
+}
 
 .pricing-card:hover {
     transform: scale(1.1);
@@ -517,14 +522,14 @@ body {
 
 .pricing-card button:hover,
 .pricing-card button:focus {
-    background-color: #111b47;
+    background-color: #3498db;
 }
 
 
 
 .signup {
     border-radius: 20px;
-    background-color: #111b47;
+    background-color: #3498db;
     color: white;
     border: none;
     font-family: 'sfpro';
@@ -973,7 +978,7 @@ html {
     background-color: #fefefe;
     margin: 12% auto;
     padding: 20px;
-    border: 3px solid #111b47;
+    border: 3px solid #3498db;
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
     width: 60%;
     height: 50%;
@@ -1037,7 +1042,7 @@ html {
     background: var(--background-color);
     padding: 20px;
     border-radius: 10px;
-    border: 2px solid #111b47;
+    border: 2px solid #3498db;
     box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease-in-out;
@@ -1164,7 +1169,7 @@ html {
     font-size: 1.3em;
     background-color: transparent;
     border: none;
-    color: #111b47;
+    color: #3498db;
     font-weight: 800;
 }
 
@@ -1230,7 +1235,7 @@ html {
     font-size: 1rem;
     border-radius: 5px;
     border: none;
-    background-color: #111b47;
+    background-color: #3498db;
     cursor: pointer;
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1242,6 +1247,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: flex-start; /* Align to the start of the container */
+    padding-right: px;
 }
 
 .main-footer {
@@ -1281,7 +1287,7 @@ html {
     font-size: 1.1em;
     margin-top: 5px;
     color: white;
-    background-color: #111b47;
+    background-color: #3498db;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -1303,7 +1309,7 @@ html {
     font-family: 'sfpro';
     font-size: 1.4em;
     color: white;
-    background-color: #111b47;
+    background-color: #3498db;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -1312,16 +1318,15 @@ html {
 }
 
 .delete-note-btn{
-    margin-left: 119vh;
+    margin-left: 116vh;
     display: block;
-    height: 5%;
+    font-weight: bold;
+    font-size: 22px;
     font-family: 'sfpro';
-    font-size: 1.3em;
     margin-top: 5px;
     color: red;
     background-color: transparent;
     box-shadow: none;
-    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -1329,20 +1334,18 @@ html {
 }
 
 .speech-btn{
-    margin-top: 8px;
+    
     font-family: 'sfpro';
     font-size: 1.5em;
-    font-family: 'sfpro';
     color: white;
-    background-color: #111b47;
-    padding: 10px 20px;
+    background-color: #3498db;
+    padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-bottom: 4px;
-    width: 10%;
-    height: 10%;
 }
 
 .dictation-controls, .translation-controls {
@@ -1368,7 +1371,7 @@ html {
     font-size: 1.1em;
     margin-top: 5px;
     color: white;
-    background-color: #111b47;
+    background-color: #3498db;
     padding: 10px 20px;
     border: none;
     border-radius: 6px;

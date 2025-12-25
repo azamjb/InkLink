@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => { // waits for page to load 
     document.querySelector('.login_form')?.addEventListener('submit', login);
 
 
-
     const readAloudButton = document.getElementById('readAloudButton');
     readAloudButton.addEventListener('click', function () {
         readPageAloud();
@@ -180,36 +179,8 @@ let recognition;
 
 let finalTranscript = ''; // Store all recognized text
 
-window.addEventListener("scroll", function () { // navbar display based on scroll
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll <= 0) {
-        document.querySelector('.navbar').classList.remove('scroll-down');
-        document.querySelector('.navbar').classList.add('scroll-up');
-    } else if (currentScroll > lastScrollTop) {
-        document.querySelector('.navbar').classList.add('scroll-down');
-        document.querySelector('.navbar').classList.remove('scroll-up');
-    } else {
-        document.querySelector('.navbar').classList.add('scroll-up');
-        document.querySelector('.navbar').classList.remove('scroll-down');
-    }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-}, false);
 
 
-document.addEventListener('mousemove', function (event) { // navbar interaction
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll <= 0) return;
-
-    if (event.clientY <= 100) {
-        navbar.classList.add('scroll-up');
-        navbar.classList.remove('scroll-down');
-    } else {
-        navbar.classList.remove('scroll-up');
-        navbar.classList.add('scroll-down');
-    }
-});
 
 
 function addFile() { // function for adding a new note
@@ -270,7 +241,7 @@ function readPageAloud() { // function for reading web page text out loud
         return;
     }
 
-    let textToRead = window.getSelection().toString().trim() !== "" ? // highlighted text (ore entire page)
+    let textToRead = window.getSelection().toString().trim() !== "" ? // highlighted text (or entire page)
         window.getSelection().toString() :
         document.body.innerText;
 
