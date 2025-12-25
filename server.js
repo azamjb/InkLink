@@ -47,6 +47,7 @@ app.post('/adduser', async (req, res) => {
 
 // Endpoint to login a user and verify the password
 app.post('/login', async (req, res) => {
+  
     const { username, password } = req.body;
   
     if (!username || !password) { // if username or password is not provided
@@ -117,7 +118,7 @@ app.get('/retrievefiles', (req, res) => {
 
 // Endpoint to retrieve file content, based on file name
 app.get('/retrievefilecontent', (req, res) => {
-  const filename = req.query.filename; // Assuming username is passed as a query parameter
+  const filename = req.query.filename; 
 
   try {
     const sql = 'SELECT file_content FROM files WHERE filename = ?';
